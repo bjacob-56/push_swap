@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 10:00:53 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/05 10:24:14 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,8 @@ void	free_inst(t_inst* inst);
 ** utils_sort.c
 */
 int	is_sorted(t_nbr* nbr);
+int	is_sorted_reverse(t_nbr* nbr);
+int	two_sorted_stack_in_order(t_swap *swap);
 void	final_check(t_swap *swap);
 
 /*
