@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 10:24:14 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/05 12:14:26 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct		s_swap
 	char			default_inst[11][4];
 	void			(*fct_inst[11])(struct s_swap*);
 	char			*line;
+	int				print;
+	int				count_sort;
 }					t_swap;
 
 /*
@@ -55,6 +57,11 @@ typedef struct		s_swap
 **					  CHECKER					  **
 ****************************************************
 */
+
+/*
+** init.c
+*/
+int	init_swap(t_swap *swap, int argc, char **argv);
 
 /*
 ** exit.c
@@ -66,6 +73,17 @@ void	exit_checker(t_swap *swap);
 ** display.c
 */
 void	display_stack(t_swap *swap);
+
+/*
+****************************************************
+**					  SORT						  **
+****************************************************
+*/
+
+/*
+** sort1.c
+*/
+void	sort1(t_swap *swap);
 
 /*
 ****************************************************

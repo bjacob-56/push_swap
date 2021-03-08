@@ -14,7 +14,7 @@
 
 int	is_sorted(t_nbr* nbr)
 {
-	if (!nbr)
+	if (nbr_size(nbr) <= 1)
 		return (1);
 	while (nbr->next)
 	{
@@ -28,7 +28,7 @@ int	is_sorted(t_nbr* nbr)
 
 int	is_sorted_reverse(t_nbr* nbr)
 {
-	if (!nbr)
+	if (nbr_size(nbr) <= 1)
 		return (1);
 	while (nbr->next)
 	{
@@ -44,7 +44,8 @@ int	two_sorted_stack_in_order(t_swap *swap)
 {
 	if (is_sorted(swap->nbra) &&
 		is_sorted_reverse(swap->nbrb) &&
-		swap->nbra->nb > swap->nbrb->nb)
+		(!swap->nbra || !swap->nbrb ||
+		swap->nbra->nb > swap->nbrb->nb))
 		return (1);
 	return (0);
 }

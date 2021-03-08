@@ -25,7 +25,7 @@ void	display_stack(t_swap *swap)
 			nbra = nbra->next;
 		}
 		else
-			printf("\n\t");
+			printf("\n");
 		printf("\t");
 		if (nbrb)
 		{
