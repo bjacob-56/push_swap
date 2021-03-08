@@ -13,11 +13,12 @@
 
 #include "../../includes/push_swap.h"
 
-t_inst	*ft_instnew(char *str)
+t_inst	*ft_instnew(t_swap *swap, char *str)
 {
 	t_inst	*elem;
 
-	if (!(elem = malloc(sizeof(t_inst))))
+	elem = malloc_lst(swap, sizeof(t_inst));
+	if (!elem)
 		return (NULL);
 	ft_memcpy(elem->inst, str, ft_strlen(str) + 1);
 	elem->next = NULL;
@@ -50,11 +51,12 @@ int	add_inst(t_swap *swap, char *str)
 {
 	t_inst	*elem;
 	
-	elem = ft_instnew(str);
+	elem = ft_instnew(swap, str);
 	if (!elem)
-		return (EXIT_FAILURE);
+		ft_exit_failure(swap, 1);
 	ft_addinst_back(&swap->instruction, elem);
 	free(swap->line);
+	swap->line = NULL;
 	return (EXIT_SUCCESS);
 }
 

@@ -28,6 +28,7 @@ void	ft_rra(t_swap *swap)
 	}
 	if (swap->print)
 		printf("rra\n");
+	swap->count_sort++;
 }
 
 void	ft_rrb(t_swap *swap)
@@ -46,6 +47,7 @@ void	ft_rrb(t_swap *swap)
 	}
 	if (swap->print)
 		printf("rrb\n");
+	swap->count_sort++;
 }
 
 void	ft_rrr(t_swap *swap)

@@ -12,18 +12,16 @@
 
 #include "../../includes/push_swap.h"
 
-void	exit_failure_checker(t_swap *swap, int error)
+void	ft_exit_failure(t_swap *swap, int error)
 {
 	(void)error;
 	printf("Error\n");
-	exit_checker(swap);
+	ft_exit(swap);
 }
 
-void	exit_checker(t_swap *swap)
+void	ft_exit(t_swap *swap)
 {
-	free_nbr(swap->nbra);
-	free_nbr(swap->nbrb);
-	free_inst(swap->instruction);
+	free_all_ptr(swap);
 	if (swap->line)
 		free(swap->line);
 	exit(EXIT_SUCCESS);

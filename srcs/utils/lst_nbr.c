@@ -12,11 +12,12 @@
 
 #include "../../includes/push_swap.h"
 
-t_nbr	*ft_nbrnew(int nb)
+t_nbr	*ft_nbrnew(t_swap *swap, int nb)
 {
 	t_nbr	*elem;
 
-	if (!(elem = malloc(sizeof(t_nbr))))
+	elem = malloc_lst(swap, sizeof(t_nbr));
+	if (!elem)
 		return (NULL);
 	elem->nb = nb;
 	elem->next = NULL;
@@ -60,12 +61,12 @@ int	add_nbr(t_swap *swap, char *str)
 	
 	nb = ft_atoi(str);
 	if (nb == (long)INT_MAX + 1)
-		return (EXIT_FAILURE);
+		ft_exit_failure(swap, 1);
 	if (is_in_stack(swap, (int)nb))
-		return (EXIT_FAILURE);
-	elem = ft_nbrnew((int)nb);
+		ft_exit_failure(swap, 1);
+	elem = ft_nbrnew(swap, (int)nb);
 	if (!elem)
-		return (EXIT_FAILURE);
+		ft_exit_failure(swap, 1);
 	ft_addnbr_back(&swap->nbra, elem);
 	return (EXIT_SUCCESS);
 }

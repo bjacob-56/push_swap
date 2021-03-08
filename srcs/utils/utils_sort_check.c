@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_sort.c                                       :+:      :+:    :+:   */
+/*   utils_sort_check.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 07:22:33 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 07:22:33 by bjacob           ###   ########lyon.fr   */
+/*   Created: 2021/03/08 15:11:18 by bjacob            #+#    #+#             */
+/*   Updated: 2021/03/08 15:11:18 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,35 +65,4 @@ void	final_check(t_swap *swap) // utiliser checker ici
 		printf("OK\n");
 	else
 		printf("KO\n");
-}
-
-void	align_to_top_a(t_swap *swap)
-{
-	int mina;
-	int count;
-
-	mina = nbr_min(swap->nbra);
-	count = 0;
-	while (swap->nbra->nb != mina)
-	{
-		ft_ra(swap);
-		count++;
-	}
-	print_rotate('a', count, nbr_size(swap->nbra), swap);
-}
-
-
-void	align_to_top_b(t_swap *swap)
-{
-	int maxb;
-	int count;
-
-	maxb = nbr_max(swap->nbrb);
-	count = 0;
-	while (swap->nbrb->nb != maxb)
-	{
-		ft_rb(swap);
-		count++;
-	}
-	print_rotate('b', count, nbr_size(swap->nbrb), swap);
 }

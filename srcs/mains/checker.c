@@ -21,19 +21,18 @@ int main(int argc, char **argv)
 	if (argc == 1)
 		return (EXIT_SUCCESS);
 	if (init_swap(&swap, argc, argv) == EXIT_FAILURE)
-		exit_failure_checker(&swap, EXIT_FAILURE);
+		ft_exit_failure(&swap, EXIT_FAILURE);
 	
 	while (get_next_line(0, &swap.line))
 	{	
 		if (is_instruction(swap.line, &swap))
 		{
 			if (add_inst(&swap, swap.line) == EXIT_FAILURE)
-				exit_failure_checker(&swap, EXIT_FAILURE);
+				ft_exit_failure(&swap, EXIT_FAILURE);
 		}
 		else
-			exit_failure_checker(&swap, EXIT_FAILURE);
+			ft_exit_failure(&swap, EXIT_FAILURE);
 	}
-	free(swap.line);
 
 	display_stack(&swap);
 	apply_instructions(&swap);
@@ -41,7 +40,10 @@ int main(int argc, char **argv)
 
 	final_check(&swap);
 
-	free_nbr(swap.nbra);
-	free_nbr(swap.nbrb);
+	swap.print = 1;
+
+	display_stack(&swap); // display
+
+	ft_exit(&swap);
 	return (EXIT_SUCCESS);
 }

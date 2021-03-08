@@ -52,16 +52,17 @@ int	get_nbr_in_stack(t_swap *swap, int argc, char **argv)
 		if (ft_is_word_fulldigit(argv[i]))
 		{
 			if (add_nbr(swap, argv[i]) == EXIT_FAILURE)
-				return (EXIT_FAILURE);
+				ft_exit_failure(swap, 1);
 		}
 		else
-			return (EXIT_FAILURE);
+			ft_exit_failure(swap, 1);
 	}
 	return (EXIT_SUCCESS);
 }
 
 int	init_swap(t_swap *swap, int argc, char **argv)
 {
+	swap->ptrs = NULL;
 	swap->nbra = NULL;
 	swap->nbrb = NULL;
 	swap->instruction = NULL;

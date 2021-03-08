@@ -26,6 +26,7 @@ void	ft_sa(t_swap *swap)
 	}
 	if (swap->print)
 		printf("sa\n");
+	swap->count_sort++;
 }
 
 void	ft_sb(t_swap *swap)
@@ -42,6 +43,7 @@ void	ft_sb(t_swap *swap)
 	}
 	if (swap->print)
 		printf("sb\n");
+	swap->count_sort++;
 }
 
 void	ft_ss(t_swap *swap)
@@ -62,6 +64,7 @@ void	ft_pa(t_swap *swap)
 	}
 	if (swap->print)
 		printf("pa\n");
+	swap->count_sort++;
 }
 
 void	ft_pb(t_swap *swap)
@@ -76,4 +79,5 @@ void	ft_pb(t_swap *swap)
 	}
 	if (swap->print)
 		printf("pb\n");
+	swap->count_sort++;
 }

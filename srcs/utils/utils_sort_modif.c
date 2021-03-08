@@ -1,16 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   utils_sort_modif.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 10:21:22 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 10:21:22 by bjacob           ###   ########lyon.fr   */
+/*   Created: 2021/03/08 15:11:07 by bjacob            #+#    #+#             */
+/*   Updated: 2021/03/08 15:11:07 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+
+void	align_to_top_a(t_swap *swap)
+{
+	int mina;
+	int count;
+
+	mina = nbr_min(swap->nbra);
+	count = 0;
+	while (swap->nbra->nb != mina)
+	{
+		ft_ra(swap);
+		count++;
+	}
+	print_rotate('a', count, nbr_size(swap->nbra), swap);
+}
+
+
+void	align_to_top_b(t_swap *swap)
+{
+	int maxb;
+	int count;
+
+	maxb = nbr_max(swap->nbrb);
+	count = 0;
+	while (swap->nbrb->nb != maxb)
+	{
+		ft_rb(swap);
+		count++;
+	}
+	print_rotate('b', count, nbr_size(swap->nbrb), swap);
+}
 
 void	insert_topa_in_b(t_swap *swap)
 {
@@ -21,6 +52,7 @@ void	insert_topa_in_b(t_swap *swap)
 	
 	nba = swap->nbra->nb;
 	i = 0;
+	swap->print_rota = 0;
 	if (nbr_size(swap->nbrb) > 1)
 	{
 		maxb = nbr_max(swap->nbrb);
@@ -34,24 +66,6 @@ void	insert_topa_in_b(t_swap *swap)
 		}
 		print_rotate('b', i, nbr_size(swap->nbrb), swap);
 	}
+	swap->print_rota = 1;
 	ft_pb(swap);
-	swap->count_sort++;
-}
-
-void	sort1(t_swap *swap)
-{
-	while (!a_empty_and_b_sorted(swap))
-	{
-		// display_stack(swap);	// display
-
-		insert_topa_in_b(swap);
-	}
-	align_to_top_b(swap);
-	while (swap->nbrb)
-	{
-		ft_pa(swap);
-		swap->count_sort++;
-	}
-
-	// display_stack(swap);
 }

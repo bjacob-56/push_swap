@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 14:54:02 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 17:05:28 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,16 @@ typedef struct		s_inst
 
 typedef struct		s_swap
 {
+	t_list			*ptrs;
 	t_nbr			*nbra;
 	t_nbr			*nbrb;
 	t_inst			*instruction;
+	int				nb_int;
+	int				*arr;
+	int				tab_index_2[2];
+	int				tab_index_5[5];
+	// int				index;
+	int				count_to_index;
 	char			default_inst[11][4];
 	void			(*fct_inst[11])(struct s_swap*);
 	char			*line;
@@ -55,7 +62,7 @@ typedef struct		s_swap
 
 /*
 ****************************************************
-**					  CHECKER					  **
+**					  COMMONS					  **
 ****************************************************
 */
 
@@ -67,8 +74,8 @@ int	init_swap(t_swap *swap, int argc, char **argv);
 /*
 ** exit.c
 */
-void	exit_failure_checker(t_swap *swap, int error);
-void	exit_checker(t_swap *swap);
+void	ft_exit_failure(t_swap *swap, int error);
+void	ft_exit(t_swap *swap);
 
 /*
 ** display.c
@@ -77,15 +84,22 @@ void	print_rotate(char c, int nb_r, int size_nbr, t_swap *swap);
 void	display_stack(t_swap *swap);
 
 /*
+** clear_objects.c
+*/
+void				*add_lst_to_free(t_swap *swap, void *ptr);
+void				*malloc_lst(t_swap *swap, int size);
+int					free_all_ptr(t_swap *swap);
+
+/*
 ****************************************************
 **					  SORT						  **
 ****************************************************
 */
 
 /*
-** sort1.c
+** sort_medium_numbers.c
 */
-void	sort1(t_swap *swap);
+int	sort_medium_numbers(t_swap *swap);
 
 /*
 ** sort2.c
@@ -161,14 +175,24 @@ int	add_inst(t_swap *swap, char *str);
 void	free_inst(t_inst* inst);
 
 /*
-** utils_sort.c
+** utils_sort_check.c
 */
 int	is_sorted(t_nbr* nbr);
 int	is_sorted_reverse(t_nbr* nbr);
 int	a_empty_and_b_sorted(t_swap *swap);
 void	final_check(t_swap *swap);
+
+/*
+** utils_sort_modif.c
+*/
 void	align_to_top_a(t_swap *swap);
 void	align_to_top_b(t_swap *swap);
+void	insert_topa_in_b(t_swap *swap);
+
+/*
+** utils_sort_array.c
+*/
+int	create_swap_array(t_swap *swap);
 
 
 /*
@@ -176,5 +200,12 @@ void	align_to_top_b(t_swap *swap);
 */
 int	is_instruction(char *str, t_swap *swap);
 
+/*
+** lst_utils.c
+*/
+t_list				*ft_lstnew(void *content);
+t_list				*ft_lstlast(t_list *lst);
+void				ft_lstadd_back(t_list **alst, t_list *new);
+void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif

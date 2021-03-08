@@ -29,7 +29,6 @@ void	apply_instructions(t_swap *swap)
 				swap->fct_inst[i](swap);
 				elem = swap->instruction;
 				swap->instruction = swap->instruction->next;
-				free(elem);
 				i = NB_INSTRUCTIONS;
 			}
 		}
