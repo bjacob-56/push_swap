@@ -35,11 +35,13 @@ void	align_to_top_b(t_swap *swap)
 
 	maxb = nbr_max(swap->nbrb);
 	count = 0;
+	swap->print_rota = 0;
 	while (swap->nbrb->nb != maxb)
 	{
 		ft_rb(swap);
 		count++;
 	}
+	swap->print_rota = 1;
 	print_rotate('b', count, nbr_size(swap->nbrb), swap);
 }
 
@@ -49,7 +51,7 @@ void	insert_topa_in_b(t_swap *swap)
 	int	nba;
 	int	maxb;
 	int	minb;
-	
+
 	nba = swap->nbra->nb;
 	i = 0;
 	swap->print_rota = 0;

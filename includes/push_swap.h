@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 17:05:28 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 17:26:38 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,10 @@ int					free_all_ptr(t_swap *swap);
 */
 
 /*
-** sort_medium_numbers.c
+** sort_medium_and_high_numbers.c
 */
-int	sort_medium_numbers(t_swap *swap);
-
-/*
-** sort2.c
-*/
+int		sort_medium_numbers(t_swap *swap);
+int		sort_high_numbers(t_swap *swap);
 
 /*
 ****************************************************

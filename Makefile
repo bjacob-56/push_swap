@@ -12,7 +12,7 @@ OBJ_DIRS = $(addprefix $(OBJ_DIR), $(common) $(utils) $(inst) $(mains) $(sort))
 PRE_SRCS	=	$(common)/init $(common)/exit $(common)/display $(common)/clear_objects \
 				$(utils)/utils_nb $(utils)/lst_nbr $(utils)/lst_nbr2 $(utils)/lst_inst $(utils)/lst_utils $(utils)/utils_sort_check $(utils)/utils_sort_modif $(utils)/utils_sort_array $(utils)/utils_instructions \
 				$(inst)/swap_push $(inst)/rotate $(inst)/reverse_rotate $(inst)/instructions \
-				$(sort)/sort_medium_numbers
+				$(sort)/sort_medium_and_high_numbers
 
 OBJS = $(addsuffix .o, $(addprefix $(OBJ_DIR), $(PRE_SRCS)))
 
