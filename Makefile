@@ -35,20 +35,20 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 
 all:	libft $(NAME) $(CHECKER)
 
-$(CHECKER): $(LIBFTA) $(OBJS) $(OBJ_CHECKER)
+$(CHECKER):	$(OBJ_DIRS) $(LIBFTA) $(OBJS) $(OBJ_CHECKER)
 	$(CC) $(CFLAGS) $(OBJS) $(OBJ_CHECKER) $(INC) -o $(CHECKER) 
 	@echo "----- \033[32m $@ created\033[0m  -----"
 
-$(NAME): $(LIBFTA) $(OBJS) $(OBJ_PUSH)
+$(NAME):	$(OBJ_DIRS) $(LIBFTA) $(OBJS) $(OBJ_PUSH)
 	$(CC) $(CFLAGS) $(OBJS) $(OBJ_PUSH) $(INC) -o $(NAME) 
 	@echo "----- \033[32m $@ created\033[0m  -----"
 
 $(OBJ_DIRS):
 	mkdir -p $(OBJ_DIRS)
 
-$(OBJS) : $(OBJ_DIRS) includes/push_swap.h $(LIBFTA)
-$(OBJ_PUSH) : $(OBJ_DIRS) includes/push_swap.h $(LIBFTA)
-$(OBJ_CHECKER) : $(OBJ_DIRS) includes/push_swap.h $(LIBFTA)
+$(OBJS) : includes/push_swap.h $(LIBFTA)
+$(OBJ_PUSH) : includes/push_swap.h $(LIBFTA)
+$(OBJ_CHECKER) : includes/push_swap.h $(LIBFTA)
 
 $(LIBFTA):
 	@$(MAKE) -C ./libft

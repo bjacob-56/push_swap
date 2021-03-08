@@ -23,7 +23,7 @@ void	ft_ra(t_swap *swap)
 		temp->next = NULL;
 		ft_addnbr_back(&swap->nbra, temp);
 	}
-	if (swap->print)
+	if (swap->print && swap->print_rota)
 		printf("ra\n");
 }
 
@@ -38,7 +38,7 @@ void	ft_rb(t_swap *swap)
 		temp->next = NULL;
 		ft_addnbr_back(&swap->nbrb, temp);
 	}
-	if (swap->print)
+	if (swap->print && swap->print_rota)
 		printf("rb\n");
 }
 

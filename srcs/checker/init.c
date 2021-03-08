@@ -67,6 +67,7 @@ int	init_swap(t_swap *swap, int argc, char **argv)
 	swap->instruction = NULL;
 	swap->line = NULL;
 	swap->print = 0;
+	swap->print_rota = 0;
 	swap->count_sort = 0;
 	fill_default_inst(swap);
 	fill_fct_inst(swap);

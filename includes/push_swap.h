@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 10:35:42 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 13:52:26 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct		s_swap
 	void			(*fct_inst[11])(struct s_swap*);
 	char			*line;
 	int				print;
+	int				print_rota;
 	int				count_sort;
 }					t_swap;
 
@@ -143,6 +144,7 @@ void	free_nbr(t_nbr* nbr);
 ** lst_nbr2.c
 */
 int		nbr_size(t_nbr *nbr);
+int	nbr_min(t_nbr *nbr);
 int	nbr_max(t_nbr *nbr);
 t_nbr	*ft_nbrlast(t_nbr *begin);
 int	is_in_stack(t_swap *swap, int nb);

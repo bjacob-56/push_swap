@@ -66,15 +66,13 @@ void	align_to_top(t_swap *swap)
 {
 	int maxb;
 	int count;
-	t_nbr	*nbrb;
 
 	maxb = nbr_max(swap->nbrb);
 	count = 0;
-	nbrb = swap->nbrb;
-	while (nbrb->nb != maxb)
+	while (swap->nbrb->nb != maxb)
 	{
 		ft_rb(swap);
 		count++;
 	}
-	print_rotate('b', count, nbr_size(nbrb), swap);
+	print_rotate('b', count, nbr_size(swap->nbrb), swap);
 }

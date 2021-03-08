@@ -25,6 +25,20 @@ int	nbr_size(t_nbr *nbr)
 	return (size);
 }
 
+int	nbr_min(t_nbr *nbr)
+{
+	int min;
+
+	min = nbr->nb;
+	while (nbr)
+	{
+		if (nbr->nb < min)
+			min = nbr->nb;
+		nbr = nbr->next;
+	}
+	return (min);
+}
+
 int	nbr_max(t_nbr *nbr)
 {
 	int max;

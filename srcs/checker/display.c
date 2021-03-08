@@ -20,12 +20,16 @@ void print_rotate(char c, int nb_r, int size_nbr, t_swap *swap)
 	if (nb_r <= size_nbr / 2)
 	{
 		while (i++ < nb_r && swap->print)
-			printf("r%c\n", c);
+			printf("r%c - i = %d\n", c, i);
+			// printf("r%c\n", c);
+		swap->count_sort += i;
 	}
 	else
 	{
 		while (i++ < size_nbr - nb_r && swap->print)
-			printf("r%c\n", c);
+			printf("rr%c - i = %d\n", c, i);
+			// printf("rr%c\n", c);
+		swap->count_sort += i;
 	}
 }
 
@@ -34,22 +38,25 @@ void	display_stack(t_swap *swap)
 	t_nbr	*nbra = swap->nbra;
 	t_nbr	*nbrb = swap->nbrb;
 	
-	while (nbra || nbrb)
+	if (swap->print)
 	{
-		if (nbra)
+		while (nbra || nbrb)
 		{
-			printf("\n %d", nbra->nb);
-			nbra = nbra->next;
+			if (nbra)
+			{
+				printf("\n %d", nbra->nb);
+				nbra = nbra->next;
+			}
+			else
+				printf("\n");
+			printf("\t");
+			if (nbrb)
+			{
+				printf("%d", nbrb->nb);
+				nbrb = nbrb->next;
+			}
 		}
-		else
-			printf("\n");
-		printf("\t");
-		if (nbrb)
-		{
-			printf("%d", nbrb->nb);
-			nbrb = nbrb->next;
-		}
+		printf("\n____________\n");
+		printf(" a \t b \n\n");
 	}
-	printf("\n____________\n");
-	printf(" a \t b \n\n");
 }
