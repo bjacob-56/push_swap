@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 12:14:26 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 10:35:42 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	exit_checker(t_swap *swap);
 /*
 ** display.c
 */
+void	print_rotate(char c, int nb_r, int size_nbr, t_swap *swap);
 void	display_stack(t_swap *swap);
 
 /*
@@ -142,6 +143,7 @@ void	free_nbr(t_nbr* nbr);
 ** lst_nbr2.c
 */
 int		nbr_size(t_nbr *nbr);
+int	nbr_max(t_nbr *nbr);
 t_nbr	*ft_nbrlast(t_nbr *begin);
 int	is_in_stack(t_swap *swap, int nb);
 
@@ -157,8 +159,10 @@ void	free_inst(t_inst* inst);
 */
 int	is_sorted(t_nbr* nbr);
 int	is_sorted_reverse(t_nbr* nbr);
-int	two_sorted_stack_in_order(t_swap *swap);
+int	a_empty_and_b_sorted(t_swap *swap);
 void	final_check(t_swap *swap);
+void	align_to_top(t_swap *swap);
+
 
 /*
 ** utils_instructions.c

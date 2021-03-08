@@ -26,6 +26,8 @@ void	ft_rra(t_swap *swap)
 		pre_last->next = NULL;
 		ft_addnbr_front(&swap->nbra, temp);
 	}
+	if (swap->print)
+		printf("rra\n");
 }
 
 void	ft_rrb(t_swap *swap)
@@ -42,6 +44,8 @@ void	ft_rrb(t_swap *swap)
 		pre_last->next = NULL;
 		ft_addnbr_front(&swap->nbrb, temp);
 	}
+	if (swap->print)
+		printf("rrb\n");
 }
 
 void	ft_rrr(t_swap *swap)

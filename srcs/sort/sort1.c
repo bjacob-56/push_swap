@@ -50,29 +50,63 @@ void	apply_rotation(t_swap *swap, int j, char c)
 }
 
 
+// void	insert_topa_in_b(t_swap *swap)
+// {
+// 	int i;
+
+// 	t_nbr *temp;
+// 	temp = swap->nbrb;
+// 	i = 0;
+
+// 	// display_stack(swap);
+
+// 	while (temp && swap->nbra->nb < temp->nb)
+// 	{
+// 		temp = temp->next;
+// 		i++;
+// 	}
+// 	if (i > nbr_size(swap->nbrb) / 2)
+// 		apply_reverse_rotation(swap, nbr_size(swap->nbrb) - i, 'b');
+// 	else
+// 		apply_rotation(swap, i, 'b'); // a ajuster
+// 	if (swap->print)
+// 		printf("pb\n");
+// 	ft_pb(swap);
+// }
+
 void	insert_topa_in_b(t_swap *swap)
 {
 	int i;
-
-	t_nbr *temp;
-	temp = swap->nbrb;
+	int	nba;
+	t_nbr *nbrb;
+	
+	nbrb = swap->nbrb;
+	nba = swap->nbra->nb;
 	i = 0;
-
-	// display_stack(swap);
-
-	while (temp && swap->nbra->nb < temp->nb)
+	if (nbr_size(nbrb) > 1)
 	{
-		temp = temp->next;
-		i++;
+		while(!(nba < ft_nbrlast(nbrb)->nb && nba > nbrb->nb))
+		{
+			ft_rb(swap);
+			i++;
+		}
+		print_rotate('b', i, nbr_size(nbrb), swap);
+		ft_pb(swap);
+
+
+		while (nbrb && swap->nbra->nb < nbrb->nb)
+		{
+			nbrb = nbrb->next;
+			i++;
+		}
+		if (i > nbr_size(swap->nbrb) / 2)
+			apply_reverse_rotation(swap, nbr_size(swap->nbrb) - i, 'b');
+		else
+			apply_rotation(swap, i, 'b'); // a ajuster
 	}
-	if (i > nbr_size(swap->nbrb) / 2)
-		apply_reverse_rotation(swap, nbr_size(swap->nbrb) - i, 'b');
-	else
-		apply_rotation(swap, i, 'b'); // a ajuster
-	if (swap->print)
-		printf("pb\n");
 	ft_pb(swap);
 }
+
 
 void	to_min_b(t_swap *swap)
 {
@@ -83,8 +117,6 @@ void	to_min_b(t_swap *swap)
 	{
 		while (nbr->nb < ft_nbrlast(nbr)->nb)
 		{
-			if (swap->print)
-				printf("rb\n");
 			ft_rb(swap);
 		}
 	}
@@ -99,8 +131,6 @@ void	to_max_b(t_swap *swap)
 	{
 		while (nbr->nb < ft_nbrlast(nbr)->nb)
 		{
-			if (swap->print)
-				printf("rb\n");
 			ft_rb(swap);
 		}
 	}
@@ -108,7 +138,7 @@ void	to_max_b(t_swap *swap)
 
 void	sort1(t_swap *swap)
 {
-	while (!two_sorted_stack_in_order(swap))
+	while (!a_empty_and_b_sorted(swap))
 	{
 		to_max_b(swap);
 
@@ -116,18 +146,15 @@ void	sort1(t_swap *swap)
 
 		if (nbr_size(swap->nbra) > 1 && swap->nbra->nb > swap->nbra->next->nb)
 		{
-			if (swap->print)
-				printf("sa\n");
 			ft_sa(swap);	// utile ?
 			swap->count_sort++;
 		}
 		else
 			insert_topa_in_b(swap);
 	}
+	align_to_top(swap);
 	while (swap->nbrb)
 	{
-		if (swap->print)
-			printf("pa\n");
 		ft_pa(swap);
 		swap->count_sort++;
 	}

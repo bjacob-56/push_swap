@@ -25,6 +25,20 @@ int	nbr_size(t_nbr *nbr)
 	return (size);
 }
 
+int	nbr_max(t_nbr *nbr)
+{
+	int max;
+
+	max = nbr->nb;
+	while (nbr)
+	{
+		if (nbr->nb > max)
+			max = nbr->nb;
+		nbr = nbr->next;
+	}
+	return (max);
+}
+
 t_nbr	*ft_nbrlast(t_nbr *begin)
 {
 	if (!begin)
