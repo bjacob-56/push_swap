@@ -20,15 +20,13 @@ void print_rotate(char c, int nb_r, int size_nbr, t_swap *swap)
 	if (nb_r <= size_nbr / 2)
 	{
 		while (i++ < nb_r && swap->print)
-			printf("r%c - i = %d\n", c, i);
-			// printf("r%c\n", c);
+			printf("r%c\n", c);
 		swap->count_sort += i;
 	}
 	else
 	{
 		while (i++ < size_nbr - nb_r && swap->print)
-			printf("rr%c - i = %d\n", c, i);
-			// printf("rr%c\n", c);
+			printf("rr%c\n", c);
 		swap->count_sort += i;
 	}
 }

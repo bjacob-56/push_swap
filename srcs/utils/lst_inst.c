@@ -61,7 +61,6 @@ int	add_inst(t_swap *swap, char *str)
 void	free_inst(t_inst* inst)
 {
 	t_inst *elem;
-dprintf(1, "p2\n");
 	
 	while (inst)
 	{

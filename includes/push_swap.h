@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 13:52:26 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 14:54:02 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ void	display_stack(t_swap *swap);
 void	sort1(t_swap *swap);
 
 /*
+** sort2.c
+*/
+
+/*
 ****************************************************
 **					  INSTRUCTIONS				  **
 ****************************************************
@@ -163,7 +167,8 @@ int	is_sorted(t_nbr* nbr);
 int	is_sorted_reverse(t_nbr* nbr);
 int	a_empty_and_b_sorted(t_swap *swap);
 void	final_check(t_swap *swap);
-void	align_to_top(t_swap *swap);
+void	align_to_top_a(t_swap *swap);
+void	align_to_top_b(t_swap *swap);
 
 
 /*

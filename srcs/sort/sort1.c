@@ -12,23 +12,6 @@
 
 #include "../../includes/push_swap.h"
 
-void	apply_reverse_rotation(t_swap *swap, int j, char c)
-{
-	t_nbr *nbr;
-
-	if (c == 'b')
-		nbr = swap->nbrb;
-	else
-		nbr = swap->nbra;
-	while (j-- > 0)
-	{
-		if (swap->print)
-			printf("rr%c\n", c);
-		ft_rrb(swap);
-		swap->count_sort++;	
-	}
-}
-
 void	insert_topa_in_b(t_swap *swap)
 {
 	int i;
@@ -59,16 +42,16 @@ void	sort1(t_swap *swap)
 {
 	while (!a_empty_and_b_sorted(swap))
 	{
-		display_stack(swap);	// display
+		// display_stack(swap);	// display
 
 		insert_topa_in_b(swap);
 	}
-	align_to_top(swap);
+	align_to_top_b(swap);
 	while (swap->nbrb)
 	{
 		ft_pa(swap);
 		swap->count_sort++;
 	}
 
-	display_stack(swap);
+	// display_stack(swap);
 }
