@@ -9,9 +9,19 @@ void	sort_few_numbers(t_swap *swap)
 
 void	sort_simple(t_swap *swap)
 {
-	while (!a_empty_and_b_sorted(swap))
+	while (!a_almost_empty_and_b_sorted(swap))
 		insert_topa_in_b(swap);
+	if (swap->nbra->nb > swap->nbra->next->nb)
+		ft_sa(swap);
 	align_to_top_b(swap);
+	while (swap->nbrb && swap->nbrb->nb > ft_nbrlast(swap->nbra)->nb)
+		ft_pa(swap);
+	if (swap->nbra->nb > ft_nbrlast(swap->nbra)->nb)
+		ft_rra(swap);
+	while (swap->nbrb && swap->nbrb->nb > ft_nbrlast(swap->nbra)->nb)
+		ft_pa(swap);
+	if (swap->nbra->nb > ft_nbrlast(swap->nbra)->nb)
+		ft_rra(swap);
 	while (swap->nbrb)
 		ft_pa(swap);
 }
@@ -58,13 +68,13 @@ int		main(int argc, char **argv)
 	swap.nb_int = nbr_size(swap.nbra);
 	if (swap.nb_int <= 3)
 		sort_few_numbers(&swap);
-	else
+	else if (!is_sorted(swap.nbra) || swap.nbra->nb != nbr_min(swap.nbra))
 	{
 		init_and_sort_swap(&swap, argc, argv);
 
-		printf("count swap1 = %d\n", swap.count_sort1);
-		printf("count swap2 = %d\n", swap.count_sort2);
-		printf("count swap3 = %d\n", swap.count_sort3);
+		// printf("count swap1 = %d\n", swap.count_sort1);
+		// printf("count swap2 = %d\n", swap.count_sort2);
+		// printf("count swap3 = %d\n", swap.count_sort3);
 
 		use_best_sort(&swap, swap.count_sort1, swap.count_sort2,
 					swap.count_sort3);

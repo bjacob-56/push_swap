@@ -39,9 +39,9 @@ int	is_sorted_reverse(t_nbr *nbr)
 	return (1);
 }
 
-int	a_empty_and_b_sorted(t_swap *swap)
+int	a_almost_empty_and_b_sorted(t_swap *swap)
 {
-	if (!swap->nbra &&
+	if (nbr_size(swap->nbra) <= 2 &&
 		is_sorted_reverse(swap->nbrb))
 		return (1);
 	return (0);
@@ -49,7 +49,8 @@ int	a_empty_and_b_sorted(t_swap *swap)
 
 void	final_check(t_swap *swap)
 {
-	if (is_sorted(swap->nbra) && !swap->nbrb)
+	if (is_sorted(swap->nbra) && !swap->nbrb &&
+		swap->nbra->nb == nbr_min(swap->nbra))
 		printf("OK\n");
 	else
 		printf("KO\n");

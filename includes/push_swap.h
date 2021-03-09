@@ -158,7 +158,7 @@ void	free_inst(t_inst *inst);
 */
 int		is_sorted(t_nbr *nbr);
 int		is_sorted_reverse(t_nbr *nbr);
-int		a_empty_and_b_sorted(t_swap *swap);
+int		a_almost_empty_and_b_sorted(t_swap *swap);
 void	final_check(t_swap *swap);
 
 /*
