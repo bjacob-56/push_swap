@@ -1,20 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 08:37:16 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 08:37:16 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
 void	ft_ra(t_swap *swap)
 {
-	t_nbr*	temp;
+	t_nbr	*temp;
 
 	if (nbr_size(swap->nbra) > 1)
 	{
@@ -31,7 +19,7 @@ void	ft_ra(t_swap *swap)
 
 void	ft_rb(t_swap *swap)
 {
-	t_nbr*	temp;
+	t_nbr	*temp;
 
 	if (nbr_size(swap->nbrb) > 1)
 	{

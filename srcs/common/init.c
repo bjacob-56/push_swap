@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 12:13:58 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 12:13:58 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
 void	fill_default_inst(t_swap *swap)
@@ -42,7 +30,7 @@ void	fill_fct_inst(t_swap *swap)
 	swap->fct_inst[10] = &ft_rrr;
 }
 
-int	get_nbr_in_stack(t_swap *swap, int argc, char **argv)
+int		get_nbr_in_stack(t_swap *swap_ptrs, t_swap *swap, int argc, char **argv)
 {
 	int i;
 
@@ -51,7 +39,7 @@ int	get_nbr_in_stack(t_swap *swap, int argc, char **argv)
 	{
 		if (ft_is_word_fulldigit(argv[i]))
 		{
-			if (add_nbr(swap, argv[i]) == EXIT_FAILURE)
+			if (add_nbr(swap_ptrs, swap, argv[i]) == EXIT_FAILURE)
 				ft_exit_failure(swap, 1);
 		}
 		else
@@ -60,7 +48,7 @@ int	get_nbr_in_stack(t_swap *swap, int argc, char **argv)
 	return (EXIT_SUCCESS);
 }
 
-int	init_swap(t_swap *swap, int argc, char **argv)
+int		init_swap(t_swap *swap_ptrs, t_swap *swap, int argc, char **argv)
 {
 	swap->ptrs = NULL;
 	swap->nbra = NULL;
@@ -72,5 +60,5 @@ int	init_swap(t_swap *swap, int argc, char **argv)
 	swap->count_sort = 0;
 	fill_default_inst(swap);
 	fill_fct_inst(swap);
-	return (get_nbr_in_stack(swap, argc, argv));
+	return (get_nbr_in_stack(swap_ptrs, swap, argc, argv));
 }

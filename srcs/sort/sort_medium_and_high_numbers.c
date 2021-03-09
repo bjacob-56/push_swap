@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   sort_medium_numbers.c                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 17:17:29 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 17:17:29 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
 void	set_index(t_swap *swap)
@@ -26,11 +14,11 @@ void	set_index(t_swap *swap)
 	swap->tab_index_5[4] = swap->nb_int - 1;
 }
 
-int	get_first_and_last_int_in_range(t_nbr *temp, int *first, int *last,
+int		get_first_and_last_int_in_range(t_nbr *temp, int *first, int *last,
 										int limit)
 {
 	int i;
-	
+
 	i = 0;
 	while (temp)
 	{
@@ -62,7 +50,7 @@ void	move_next_int_in_range_to_b(t_swap *swap, int limit)
 			ft_ra(swap);
 	}
 	else
-	{	
+	{
 		while (last_in_range++ < i)
 			ft_rra(swap);
 	}
@@ -70,12 +58,12 @@ void	move_next_int_in_range_to_b(t_swap *swap, int limit)
 	swap->count_to_index++;
 }
 
-int	sort_medium_numbers(t_swap *swap)
+int		sort_medium_numbers(t_swap *swap_ptrs, t_swap *swap)
 {
 	int index;
 	int limit;
 
-	if (create_swap_array(swap) == EXIT_FAILURE)
+	if (create_swap_array(swap_ptrs, swap) == EXIT_FAILURE)
 		ft_exit_failure(swap, 1);
 	swap->nb_int = nbr_size(swap->nbra);
 	set_index(swap);
@@ -95,12 +83,12 @@ int	sort_medium_numbers(t_swap *swap)
 	return (EXIT_SUCCESS);
 }
 
-int	sort_high_numbers(t_swap *swap)
+int		sort_high_numbers(t_swap *swap_ptrs, t_swap *swap)
 {
 	int index;
 	int	limit;
 
-	if (create_swap_array(swap) == EXIT_FAILURE)
+	if (create_swap_array(swap_ptrs, swap) == EXIT_FAILURE)
 		ft_exit_failure(swap, 1);
 	swap->nb_int = nbr_size(swap->nbra);
 	set_index(swap);

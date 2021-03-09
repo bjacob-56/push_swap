@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 08:58:54 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 08:58:54 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
-void print_rotate(char c, int nb_r, int size_nbr, t_swap *swap)
+void	print_rotate(char c, int nb_r, int size_nbr, t_swap *swap)
 {
 	int i;
 
@@ -33,9 +21,11 @@ void print_rotate(char c, int nb_r, int size_nbr, t_swap *swap)
 
 void	display_stack(t_swap *swap)
 {
-	t_nbr	*nbra = swap->nbra;
-	t_nbr	*nbrb = swap->nbrb;
-	
+	t_nbr	*nbra;
+	t_nbr	*nbrb;
+
+	nbra = swap->nbra;
+	nbrb = swap->nbrb;
 	if (swap->print)
 	{
 		while (nbra || nbrb)
@@ -54,7 +44,6 @@ void	display_stack(t_swap *swap)
 				nbrb = nbrb->next;
 			}
 		}
-		printf("\n____________\n");
-		printf(" a \t b \n\n");
+		printf("\n____________\n a \t b \n\n");
 	}
 }

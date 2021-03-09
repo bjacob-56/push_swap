@@ -1,16 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   lst_inst.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 07:32:49 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 07:32:49 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include "../../includes/push_swap.h"
 
 t_inst	*ft_instnew(t_swap *swap, char *str)
@@ -47,10 +34,10 @@ void	ft_addinst_back(t_inst **alst, t_inst *new)
 	}
 }
 
-int	add_inst(t_swap *swap, char *str)
+int		add_inst(t_swap *swap, char *str)
 {
 	t_inst	*elem;
-	
+
 	elem = ft_instnew(swap, str);
 	if (!elem)
 		ft_exit_failure(swap, 1);
@@ -60,10 +47,10 @@ int	add_inst(t_swap *swap, char *str)
 	return (EXIT_SUCCESS);
 }
 
-void	free_inst(t_inst* inst)
+void	free_inst(t_inst *inst)
 {
 	t_inst *elem;
-	
+
 	while (inst)
 	{
 		elem = inst->next;

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils_sort_array.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 16:29:48 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 16:29:48 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
 void	sort_array(int *arr, int len)
@@ -36,13 +24,13 @@ void	sort_array(int *arr, int len)
 	}
 }
 
-int	create_swap_array(t_swap *swap)
+int		create_swap_array(t_swap *swap_ptrs, t_swap *swap)
 {
-	int i;
+	int		i;
 	t_nbr	*temp;
 
 	swap->nb_int = nbr_size(swap->nbra);
-	swap->arr = malloc_lst(swap, swap->nb_int * sizeof(int));
+	swap->arr = malloc_lst(swap_ptrs, swap->nb_int * sizeof(int));
 	if (!swap->arr)
 		ft_exit_failure(swap, 1);
 	i = -1;

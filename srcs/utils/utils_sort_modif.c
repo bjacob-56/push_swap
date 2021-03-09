@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   utils_sort_modif.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 15:11:07 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/08 15:11:07 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
 void	align_to_top_a(t_swap *swap)
@@ -26,7 +14,6 @@ void	align_to_top_a(t_swap *swap)
 	}
 	print_rotate('a', count, nbr_size(swap->nbra), swap);
 }
-
 
 void	align_to_top_b(t_swap *swap)
 {
@@ -59,7 +46,7 @@ void	insert_topa_in_b(t_swap *swap)
 	{
 		maxb = nbr_max(swap->nbrb);
 		minb = nbr_min(swap->nbrb);
-		while(!(nba < ft_nbrlast(swap->nbrb)->nb && nba > swap->nbrb->nb) &&
+		while (!(nba < ft_nbrlast(swap->nbrb)->nb && nba > swap->nbrb->nb) &&
 			!(nba > maxb && swap->nbrb->nb == maxb) &&
 			!(nba < minb && swap->nbrb->nb == maxb))
 		{

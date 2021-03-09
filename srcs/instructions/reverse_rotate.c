@@ -1,20 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 08:37:29 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 08:37:29 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
 
 void	ft_rra(t_swap *swap)
 {
-	t_nbr*	temp;
+	t_nbr	*temp;
 	t_nbr	*pre_last;
 
 	if (nbr_size(swap->nbra) > 1)
@@ -33,7 +21,7 @@ void	ft_rra(t_swap *swap)
 
 void	ft_rrb(t_swap *swap)
 {
-	t_nbr*	temp;
+	t_nbr	*temp;
 	t_nbr	*pre_last;
 
 	if (nbr_size(swap->nbrb) > 1)

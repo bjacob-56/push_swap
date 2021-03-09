@@ -1,21 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   instructions.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 08:43:47 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 08:43:47 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../../includes/push_swap.h"
-
 
 void	apply_instructions(t_swap *swap)
 {
-	int i;
+	int		i;
 	t_inst	*elem;
 
 	while (swap->instruction)
