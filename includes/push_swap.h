@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 06:52:01 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/09 11:26:04 by bjacob           ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -64,7 +52,7 @@ typedef struct		s_swap
 /*
 ** init.c
 */
-int	init_swap(t_swap *swap_ptrs, t_swap *swap, int argc, char **argv);
+int		init_swap(t_swap *swap_ptrs, t_swap *swap, int argc, char **argv);
 
 /*
 ** exit.c
@@ -81,9 +69,9 @@ void	display_stack(t_swap *swap);
 /*
 ** clear_objects.c
 */
-void				*add_lst_to_free(t_swap *swap, void *ptr);
-void				*malloc_lst(t_swap *swap, int size);
-int					free_all_ptr(t_swap *swap);
+void	*add_lst_to_free(t_swap *swap, void *ptr);
+void	*malloc_lst(t_swap *swap, int size);
+int		free_all_ptr(t_swap *swap);
 
 /*
 ****************************************************
@@ -140,7 +128,7 @@ void	apply_instructions(t_swap *swap);
 /*
 ** utils_nb.c
 */
-int	ft_is_word_fulldigit(char *str);
+int		ft_is_word_fulldigit(char *str);
 
 /*
 ** lst_nbr.c
@@ -148,30 +136,29 @@ int	ft_is_word_fulldigit(char *str);
 void	ft_addnbr_back(t_nbr **alst, t_nbr *new);
 void	ft_addnbr_front(t_nbr **alst, t_nbr *new);
 int		add_nbr(t_swap *swap_ptrs, t_swap *swap, char *str);
-void	free_nbr(t_nbr* nbr);
+void	free_nbr(t_nbr *nbr);
 
 /*
 ** lst_nbr2.c
 */
 int		nbr_size(t_nbr *nbr);
-int	nbr_min(t_nbr *nbr);
-int	nbr_max(t_nbr *nbr);
+int		nbr_min(t_nbr *nbr);
+int		nbr_max(t_nbr *nbr);
 t_nbr	*ft_nbrlast(t_nbr *begin);
-int	is_in_stack(t_swap *swap, int nb);
-
+int		is_in_stack(t_swap *swap, int nb);
 
 /*
 ** lst_inst.c
 */
-int	add_inst(t_swap *swap, char *str);
-void	free_inst(t_inst* inst);
+int		add_inst(t_swap *swap, char *str);
+void	free_inst(t_inst *inst);
 
 /*
 ** utils_sort_check.c
 */
-int	is_sorted(t_nbr* nbr);
-int	is_sorted_reverse(t_nbr* nbr);
-int	a_empty_and_b_sorted(t_swap *swap);
+int		is_sorted(t_nbr *nbr);
+int		is_sorted_reverse(t_nbr *nbr);
+int		a_empty_and_b_sorted(t_swap *swap);
 void	final_check(t_swap *swap);
 
 /*
@@ -184,20 +171,19 @@ void	insert_topa_in_b(t_swap *swap);
 /*
 ** utils_sort_array.c
 */
-int	create_swap_array(t_swap *swap_ptrs, t_swap *swap);
-
+int		create_swap_array(t_swap *swap_ptrs, t_swap *swap);
 
 /*
 ** utils_instructions.c
 */
-int	is_instruction(char *str, t_swap *swap);
+int		is_instruction(char *str, t_swap *swap);
 
 /*
 ** lst_utils.c
 */
-t_list				*ft_lstnew(void *content);
-t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **alst, t_list *new);
-void				ft_lstclear(t_list **lst, void (*del)(void *));
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **alst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif
