@@ -9,6 +9,8 @@
 
 # define NB_INSTRUCTIONS 11
 
+# define HIGH_NB 13
+
 typedef struct		s_nbr
 {
 	struct s_nbr	*next;
@@ -31,6 +33,7 @@ typedef struct		s_swap
 	int				*arr;
 	int				tab_index_2[2];
 	int				tab_index_5[5];
+	int				tab_index_high[HIGH_NB];
 	int				count_to_index;
 	char			default_inst[11][4];
 	void			(*fct_inst[11])(struct s_swap*);
@@ -38,9 +41,10 @@ typedef struct		s_swap
 	int				print;
 	int				print_rota;
 	int				count_sort;
-	int				count_sort1;
-	int				count_sort2;
-	int				count_sort3;
+	int				count1;
+	int				count2;
+	int				count3;
+	int				count4;
 }					t_swap;
 
 /*
@@ -82,8 +86,15 @@ int		free_all_ptr(t_swap *swap);
 /*
 ** sort_medium_and_high_numbers.c
 */
+void	move_next_int_in_range_to_b(t_swap *swap, int limit);
 int		sort_medium_numbers(t_swap *swap_ptrs, t_swap *swap);
 int		sort_high_numbers(t_swap *swap_ptrs, t_swap *swap);
+
+/*
+** sort_very_high_numbers.c
+*/
+int		sort_very_high_numbers(t_swap *swap_ptrs, t_swap *swap);
+
 
 /*
 ****************************************************

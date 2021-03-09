@@ -26,14 +26,17 @@ void	sort_simple(t_swap *swap)
 		ft_pa(swap);
 }
 
-void	use_best_sort(t_swap *swap, int count1, int count2, int count3)
+void	use_best_sort(t_swap *swap)
 {
-	if (count1 <= count2 && count1 <= count3)
+	if (swap->count1 <= swap->count2 && swap->count1 <= swap->count3 &&
+		swap->count1 <= swap->count4)
 		sort_simple(swap);
-	else if (count2 <= count3)
+	else if (swap->count2 <= swap->count3 && swap->count2 <= swap->count4)
 		sort_medium_numbers(swap, swap);
-	else
+	else if (swap->count3 <= swap->count4)
 		sort_high_numbers(swap, swap);
+	else
+		sort_very_high_numbers(swap, swap);
 }
 
 void	init_and_sort_swap(t_swap *swap, int argc, char **argv)
@@ -41,6 +44,7 @@ void	init_and_sort_swap(t_swap *swap, int argc, char **argv)
 	t_swap	swap1;
 	t_swap	swap2;
 	t_swap	swap3;
+	t_swap	swap4;
 
 	if (init_swap(swap, &swap1, argc, argv) == EXIT_FAILURE)
 		ft_exit_failure(swap, EXIT_FAILURE);
@@ -48,12 +52,19 @@ void	init_and_sort_swap(t_swap *swap, int argc, char **argv)
 		ft_exit_failure(swap, EXIT_FAILURE);
 	if (init_swap(swap, &swap3, argc, argv) == EXIT_FAILURE)
 		ft_exit_failure(swap, EXIT_FAILURE);
+	if (init_swap(swap, &swap4, argc, argv) == EXIT_FAILURE)
+		ft_exit_failure(swap, EXIT_FAILURE);
 	sort_simple(&swap1);
 	sort_medium_numbers(swap, &swap2);
 	sort_high_numbers(swap, &swap3);
-	swap->count_sort1 = swap1.count_sort;
-	swap->count_sort2 = swap2.count_sort;
-	swap->count_sort3 = swap3.count_sort;
+	if (swap->nb_int > 20)
+		sort_very_high_numbers(swap, &swap4);
+	else
+		swap4.count_sort = swap1.count_sort + 1;
+	swap->count1 = swap1.count_sort;
+	swap->count2 = swap2.count_sort;
+	swap->count3 = swap3.count_sort;
+	swap->count4 = swap4.count_sort;
 }
 
 int		main(int argc, char **argv)
@@ -72,12 +83,12 @@ int		main(int argc, char **argv)
 	{
 		init_and_sort_swap(&swap, argc, argv);
 
-		// printf("count swap1 = %d\n", swap.count_sort1);
-		// printf("count swap2 = %d\n", swap.count_sort2);
-		// printf("count swap3 = %d\n", swap.count_sort3);
+		// printf("count swap1 = %d\n", swap.count1);
+		// printf("count swap2 = %d\n", swap.count2);
+		// printf("count swap3 = %d\n", swap.count3);
+		// printf("count swap4 = %d\n", swap.count4);
 
-		use_best_sort(&swap, swap.count_sort1, swap.count_sort2,
-					swap.count_sort3);
+		use_best_sort(&swap);
 	}
 	ft_exit(&swap);
 	return (EXIT_SUCCESS);

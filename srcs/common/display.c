@@ -7,14 +7,16 @@ void	print_rotate(char c, int nb_r, int size_nbr, t_swap *swap)
 	i = -1;
 	if (nb_r <= size_nbr / 2)
 	{
-		while (++i < nb_r && swap->print)
-			printf("r%c\n", c);
+		while (++i < nb_r)
+			if (swap->print)
+				printf("r%c\n", c);
 		swap->count_sort += i;
 	}
 	else
 	{
-		while (++i < size_nbr - nb_r && swap->print)
-			printf("rr%c\n", c);
+		while (++i < size_nbr - nb_r)
+			if (swap->print)
+				printf("rr%c\n", c);
 		swap->count_sort += i;
 	}
 }
