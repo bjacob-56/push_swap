@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:47:03 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 10:08:14 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 11:35:44 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	align_to_top_a(t_swap *swap)
 
 	mina = nbr_min(swap->nbra);
 	count = 0;
+	swap->print_rota = 0;
 	while (swap->nbra->nb != mina)
 	{
 		ft_ra(swap);
 		count++;
 	}
+	swap->print_rota = 1;
 	print_rotate('a', count, nbr_size(swap->nbra), swap);
 }
 
@@ -69,4 +71,31 @@ void	insert_topa_in_b(t_swap *swap)
 	}
 	swap->print_rota = 1;
 	ft_pb(swap);
+}
+
+void	insert_topb_in_a(t_swap *swap)
+{
+	int i;
+	int	nbb;
+	int	maxa;
+	int	mina;
+
+	nbb = swap->nbrb->nb;
+	i = 0;
+	swap->print_rota = 0;
+	if (nbr_size(swap->nbra) > 1)
+	{
+		maxa = nbr_max(swap->nbra);
+		mina = nbr_min(swap->nbra);
+		while (!(nbb > ft_nbrlast(swap->nbra)->nb && nbb < swap->nbra->nb) &&
+			!(nbb > maxa && ft_nbrlast(swap->nbra)->nb == maxa) &&
+			!(nbb < mina && ft_nbrlast(swap->nbra)->nb == maxa))
+		{
+			ft_ra(swap);
+			i++;
+		}
+		print_rotate('a', i, nbr_size(swap->nbra), swap);
+	}
+	swap->print_rota = 1;
+	ft_pa(swap);
 }

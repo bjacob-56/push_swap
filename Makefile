@@ -45,9 +45,9 @@ $(NAME):	$(OBJ_DIRS) $(LIBFTA) $(OBJS) $(OBJ_PUSH)
 $(OBJ_DIRS):
 	mkdir -p $(OBJ_DIRS)
 
-$(OBJS) : includes/push_swap.h $(LIBFTA)
-$(OBJ_PUSH) : includes/push_swap.h $(LIBFTA)
-$(OBJ_CHECKER) : includes/push_swap.h $(LIBFTA)
+$(OBJS) : includes/push_swap.h
+$(OBJ_PUSH) : includes/push_swap.h
+$(OBJ_CHECKER) : includes/push_swap.h
 
 $(LIBFTA):
 	@$(MAKE) -C ./libft

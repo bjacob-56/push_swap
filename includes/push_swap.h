@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:48:24 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 10:08:08 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 11:09:30 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,6 +194,7 @@ void				final_check(t_swap *swap);
 void				align_to_top_a(t_swap *swap);
 void				align_to_top_b(t_swap *swap);
 void				insert_topa_in_b(t_swap *swap);
+void				insert_topb_in_a(t_swap *swap);
 
 /*
 ** utils_sort_array.c

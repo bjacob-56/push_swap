@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:44:16 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 10:25:28 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 11:33:43 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,12 @@ void	sort_few_numbers(t_swap *swap)
 
 void	sort_simple(t_swap *swap)
 {
-	while (!a_almost_empty_and_b_sorted(swap))
+	while (nbr_size(swap->nbra) > 3)
 		insert_topa_in_b(swap);
-	if (swap->nbra->nb > swap->nbra->next->nb)
-		ft_sa(swap);
-	align_to_top_b(swap);
-	while (swap->nbrb && swap->nbrb->nb > ft_nbrlast(swap->nbra)->nb)
-		ft_pa(swap);
-	if (swap->nbra->nb > ft_nbrlast(swap->nbra)->nb)
-		ft_rra(swap);
-	while (swap->nbrb && swap->nbrb->nb > ft_nbrlast(swap->nbra)->nb)
-		ft_pa(swap);
-	if (swap->nbra->nb > ft_nbrlast(swap->nbra)->nb)
-		ft_rra(swap);
+	sort_few_numbers(swap);
 	while (swap->nbrb)
-		ft_pa(swap);
+		insert_topb_in_a(swap);
+	align_to_top_a(swap);
 }
 
 void	use_best_sort(t_swap *swap)
