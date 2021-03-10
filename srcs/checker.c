@@ -6,11 +6,11 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:44:03 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 08:44:09 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 10:25:24 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	main(int argc, char **argv)
 {

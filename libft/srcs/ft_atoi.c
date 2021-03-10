@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 18:17:14 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/05 10:06:35 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 10:18:34 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	is_white_space(char c)
 		return (0);
 }
 
-long			ft_atoi(const char *str)
+long		ft_atoi(const char *str)
 {
 	long	res;
 	int		signe;

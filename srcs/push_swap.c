@@ -6,11 +6,11 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:44:16 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 10:10:14 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 10:25:28 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 void	sort_few_numbers(t_swap *swap)
 {

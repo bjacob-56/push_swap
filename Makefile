@@ -2,7 +2,6 @@ SRC_DIR	:= srcs/
 OBJ_DIR	:= obj/
 
 common = common
-mains = mains
 utils = utils
 inst = instructions
 sort = sort
@@ -16,8 +15,8 @@ PRE_SRCS	=	$(common)/init $(common)/exit $(common)/display $(common)/clear_objec
 
 OBJS = $(addsuffix .o, $(addprefix $(OBJ_DIR), $(PRE_SRCS)))
 
-OBJ_PUSH =  obj/$(mains)/push_swap.o
-OBJ_CHECKER = obj/$(mains)/checker.o
+OBJ_PUSH =  obj/push_swap.o
+OBJ_CHECKER = obj/checker.o
 
 LIBFTA = libft/libft.a
 
@@ -25,8 +24,8 @@ NAME = push_swap
 CHECKER = checker
 CC = clang
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
-# CFLAGS = -Wall -Wextra -Werror -g3
+# CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g3
 INC =	-I./includes -L./libft -lft
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
