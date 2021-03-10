@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:48:24 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 08:48:36 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 09:07:01 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # define NB_INSTRUCTIONS 11
 
 # define HIGH_NB 13
+
+struct s_swap;
+
+typedef void	(*t_function)(struct s_swap *);
 
 typedef struct		s_nbr
 {
@@ -48,7 +52,7 @@ typedef struct		s_swap
 	int				tab_index_high[HIGH_NB];
 	int				count_to_index;
 	char			default_inst[11][4];
-	void			(*fct_inst[11])(struct s_swap*);
+	t_function		fct_inst[11];
 	char			*line;
 	int				print;
 	int				print_rota;
@@ -68,26 +72,27 @@ typedef struct		s_swap
 /*
 ** init.c
 */
-int		init_swap(t_swap *swap_ptrs, t_swap *swap, int argc, char **argv);
+int					init_swap(t_swap *swap_ptrs, t_swap *swap, int argc,
+							char **argv);
 
 /*
 ** exit.c
 */
-void	ft_exit_failure(t_swap *swap, int error);
-void	ft_exit(t_swap *swap);
+void				ft_exit_failure(t_swap *swap, int error);
+void				ft_exit(t_swap *swap);
 
 /*
 ** display.c
 */
-void	print_rotate(char c, int nb_r, int size_nbr, t_swap *swap);
-void	display_stack(t_swap *swap);
+void				print_rotate(char c, int nb_r, int size_nbr, t_swap *swap);
+void				display_stack(t_swap *swap);
 
 /*
 ** clear_objects.c
 */
-void	*add_lst_to_free(t_swap *swap, void *ptr);
-void	*malloc_lst(t_swap *swap, int size);
-int		free_all_ptr(t_swap *swap);
+void				*add_lst_to_free(t_swap *swap, void *ptr);
+void				*malloc_lst(t_swap *swap, int size);
+int					free_all_ptr(t_swap *swap);
 
 /*
 ****************************************************
@@ -98,14 +103,14 @@ int		free_all_ptr(t_swap *swap);
 /*
 ** sort_medium_and_high_numbers.c
 */
-void	move_next_int_in_range_to_b(t_swap *swap, int limit);
-int		sort_medium_numbers(t_swap *swap_ptrs, t_swap *swap);
-int		sort_high_numbers(t_swap *swap_ptrs, t_swap *swap);
+void				move_next_int_in_range_to_b(t_swap *swap, int limit);
+int					sort_medium_numbers(t_swap *swap_ptrs, t_swap *swap);
+int					sort_high_numbers(t_swap *swap_ptrs, t_swap *swap);
 
 /*
 ** sort_very_high_numbers.c
 */
-int		sort_very_high_numbers(t_swap *swap_ptrs, t_swap *swap);
+int					sort_very_high_numbers(t_swap *swap_ptrs, t_swap *swap);
 
 /*
 ****************************************************
@@ -116,30 +121,30 @@ int		sort_very_high_numbers(t_swap *swap_ptrs, t_swap *swap);
 /*
 ** swap_push.c
 */
-void	ft_sa(t_swap *swap);
-void	ft_sb(t_swap *swap);
-void	ft_ss(t_swap *swap);
-void	ft_pa(t_swap *swap);
-void	ft_pb(t_swap *swap);
+void				ft_sa(t_swap *swap);
+void				ft_sb(t_swap *swap);
+void				ft_ss(t_swap *swap);
+void				ft_pa(t_swap *swap);
+void				ft_pb(t_swap *swap);
 
 /*
 ** rotate.c
 */
-void	ft_ra(t_swap *swap);
-void	ft_rb(t_swap *swap);
-void	ft_rr(t_swap *swap);
+void				ft_ra(t_swap *swap);
+void				ft_rb(t_swap *swap);
+void				ft_rr(t_swap *swap);
 
 /*
 ** reverse_rotate.c
 */
-void	ft_rra(t_swap *swap);
-void	ft_rrb(t_swap *swap);
-void	ft_rrr(t_swap *swap);
+void				ft_rra(t_swap *swap);
+void				ft_rrb(t_swap *swap);
+void				ft_rrr(t_swap *swap);
 
 /*
 ** instructions.c
 */
-void	apply_instructions(t_swap *swap);
+void				apply_instructions(t_swap *swap);
 
 /*
 ****************************************************
@@ -150,62 +155,62 @@ void	apply_instructions(t_swap *swap);
 /*
 ** utils_nb.c
 */
-int		ft_is_word_fulldigit(char *str);
+int					ft_is_word_fulldigit(char *str);
 
 /*
 ** lst_nbr.c
 */
-void	ft_addnbr_back(t_nbr **alst, t_nbr *new);
-void	ft_addnbr_front(t_nbr **alst, t_nbr *new);
-int		add_nbr(t_swap *swap_ptrs, t_swap *swap, char *str);
-void	free_nbr(t_nbr *nbr);
+void				ft_addnbr_back(t_nbr **alst, t_nbr *new);
+void				ft_addnbr_front(t_nbr **alst, t_nbr *new);
+int					add_nbr(t_swap *swap_ptrs, t_swap *swap, char *str);
+void				free_nbr(t_nbr *nbr);
 
 /*
 ** lst_nbr2.c
 */
-int		nbr_size(t_nbr *nbr);
-int		nbr_min(t_nbr *nbr);
-int		nbr_max(t_nbr *nbr);
-t_nbr	*ft_nbrlast(t_nbr *begin);
-int		is_in_stack(t_swap *swap, int nb);
+int					nbr_size(t_nbr *nbr);
+int					nbr_min(t_nbr *nbr);
+int					nbr_max(t_nbr *nbr);
+t_nbr				*ft_nbrlast(t_nbr *begin);
+int					is_in_stack(t_swap *swap, int nb);
 
 /*
 ** lst_inst.c
 */
-int		add_inst(t_swap *swap, char *str);
-void	free_inst(t_inst *inst);
+int					add_inst(t_swap *swap, char *str);
+void				free_inst(t_inst *inst);
 
 /*
 ** utils_sort_check.c
 */
-int		is_sorted(t_nbr *nbr);
-int		is_sorted_reverse(t_nbr *nbr);
-int		a_almost_empty_and_b_sorted(t_swap *swap);
-void	final_check(t_swap *swap);
+int					is_sorted(t_nbr *nbr);
+int					is_sorted_reverse(t_nbr *nbr);
+int					a_almost_empty_and_b_sorted(t_swap *swap);
+void				final_check(t_swap *swap);
 
 /*
 ** utils_sort_modif.c
 */
-void	align_to_top_a(t_swap *swap);
-void	align_to_top_b(t_swap *swap);
-void	insert_topa_in_b(t_swap *swap);
+void				align_to_top_a(t_swap *swap);
+void				align_to_top_b(t_swap *swap);
+void				insert_topa_in_b(t_swap *swap);
 
 /*
 ** utils_sort_array.c
 */
-int		create_swap_array(t_swap *swap_ptrs, t_swap *swap);
+int					create_swap_array(t_swap *swap_ptrs, t_swap *swap);
 
 /*
 ** utils_instructions.c
 */
-int		is_instruction(char *str, t_swap *swap);
+int					is_instruction(char *str, t_swap *swap);
 
 /*
 ** lst_utils.c
 */
-t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **alst, t_list *new);
-void	ft_lstclear(t_list **lst, void (*del)(void *));
+t_list				*ft_lstnew(void *content);
+t_list				*ft_lstlast(t_list *lst);
+void				ft_lstadd_back(t_list **alst, t_list *new);
+void				ft_lstclear(t_list **lst, void (*del)(void *));
 
 #endif
