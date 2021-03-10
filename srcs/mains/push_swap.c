@@ -6,7 +6,7 @@
 /*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 08:44:16 by bjacob            #+#    #+#             */
-/*   Updated: 2021/03/10 08:44:21 by bjacob           ###   ########lyon.fr   */
+/*   Updated: 2021/03/10 10:10:14 by bjacob           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,6 @@ int		main(int argc, char **argv)
 	else if (!is_sorted(swap.nbra) || swap.nbra->nb != nbr_min(swap.nbra))
 	{
 		init_and_sort_swap(&swap, argc, argv);
-
-		// printf("count swap1 = %d\n", swap.count1);
-		// printf("count swap2 = %d\n", swap.count2);
-		// printf("count swap3 = %d\n", swap.count3);
-		// printf("count swap4 = %d\n", swap.count4);
-
 		use_best_sort(&swap);
 	}
 	ft_exit(&swap);
