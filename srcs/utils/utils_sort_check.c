@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_sort_check.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 08:46:52 by bjacob            #+#    #+#             */
+/*   Updated: 2021/03/10 08:47:46 by bjacob           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
-int	is_sorted(t_nbr *nbr)
+int		is_sorted(t_nbr *nbr)
 {
 	int max;
 
@@ -16,11 +28,10 @@ int	is_sorted(t_nbr *nbr)
 		else
 			nbr = nbr->next;
 	}
-
 	return (1);
 }
 
-int	is_sorted_reverse(t_nbr *nbr)
+int		is_sorted_reverse(t_nbr *nbr)
 {
 	int max;
 
@@ -39,7 +50,7 @@ int	is_sorted_reverse(t_nbr *nbr)
 	return (1);
 }
 
-int	a_almost_empty_and_b_sorted(t_swap *swap)
+int		a_almost_empty_and_b_sorted(t_swap *swap)
 {
 	if (nbr_size(swap->nbra) <= 2 &&
 		is_sorted_reverse(swap->nbrb))

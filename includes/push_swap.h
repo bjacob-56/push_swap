@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 08:48:24 by bjacob            #+#    #+#             */
+/*   Updated: 2021/03/10 08:48:36 by bjacob           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -94,7 +106,6 @@ int		sort_high_numbers(t_swap *swap_ptrs, t_swap *swap);
 ** sort_very_high_numbers.c
 */
 int		sort_very_high_numbers(t_swap *swap_ptrs, t_swap *swap);
-
 
 /*
 ****************************************************

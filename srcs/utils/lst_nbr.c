@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst_nbr.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bjacob <bjacob@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/10 08:45:44 by bjacob            #+#    #+#             */
+/*   Updated: 2021/03/10 08:47:27 by bjacob           ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
 
 t_nbr	*ft_nbrnew(t_swap *swap, int nb)
@@ -59,7 +71,7 @@ int		add_nbr(t_swap *swap_ptrs, t_swap *swap, char *str)
 	return (EXIT_SUCCESS);
 }
 
-void	free_nbr(t_nbr* nbr)
+void	free_nbr(t_nbr *nbr)
 {
 	t_nbr *elem;
 
